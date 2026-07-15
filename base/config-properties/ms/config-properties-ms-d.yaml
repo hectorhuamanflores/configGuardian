@@ -1,0 +1,20 @@
+# =============================================================================
+# CONFIGGUARDIAN - SAMPLE CONFIGMAP
+# -----------------------------------------------------------------------------
+# This file contains ONLY fictitious data created for learning, testing and
+# demonstration purposes.
+# =============================================================================
+
+apiVersion: v1
+kind: ConfigMap
+
+metadata:
+  name: config-properties-ms-d
+  namespace: desarrollo
+
+data:
+  DB_HOST: mysql-d
+  DB_PORT: "3306"
+  DB_NAME: database_d
+  SERVER_PORT: "8084"
+  MAX_CONNECTIONS: "100"

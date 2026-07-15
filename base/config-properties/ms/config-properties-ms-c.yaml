@@ -1,0 +1,21 @@
+# =============================================================================
+# CONFIGGUARDIAN - SAMPLE CONFIGMAP
+# -----------------------------------------------------------------------------
+# This file contains ONLY fictitious data created for learning, testing and
+# demonstration purposes.
+# =============================================================================
+
+apiVersion: v1
+kind: ConfigMap
+
+metadata:
+  name: config-properties-ms-c
+  namespace: desarrollo
+
+data:
+  DB_HOST: mysql-c
+  DB_PORT: "3306"
+  DB_NAME: database_c
+  SERVER_PORT: "8083"
+  TIMEOUT: "30"
+  RETRY: "3"
