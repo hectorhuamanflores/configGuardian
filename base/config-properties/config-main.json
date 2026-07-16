@@ -1,0 +1,18 @@
+{
+  "proyecto":{
+    "nombre": "nombre-proyecto",
+    "rol": "abc"
+  },
+  "info": [
+      {
+        "id_proyecto": "PRY-001",
+        "nombre": "ABCDE",
+        "estado": "abcde"
+      },
+      {
+        "id_proyecto": "PRY-002",
+        "nombre": "Migración de Base de Datos",
+        "estado": "completado"
+      }
+    ]
+}

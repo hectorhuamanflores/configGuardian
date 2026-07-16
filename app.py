@@ -1,20 +1,29 @@
-from validators.yaml_reader import leer_yaml
-from validators.configmap_validator import validar_configmap
+from validators.route_validator import validar_ruta
+from validators.configmap_validator import validar_configmaps
+from reports.report_generator import generar_reporte
+
 
 def main():
-    print("===================================")
-    print("      ConfigGuardian iniciado")
-    print("===================================")
 
-    ruta_configmap  = "config/configmap-generico.yaml"
-    config = leer_yaml(ruta_configmap)
+    carpeta_base = "base/config-properties"
+    carpeta_proyecto = "proyecto"
 
-    print("===== CONFIGMAP LEÍDO =====")
-    print("\nVariables encontradas:\n")
-    data = validar_configmap(config)
+    resultado = validar_ruta(
+        carpeta_base,
+        carpeta_proyecto
+    )
 
-    for clave, valor in data.items():
-        print(clave, "=", valor)
+    if not resultado["valido"]:
+
+        generar_reporte(resultado)
+        return
+
+    resultado = validar_configmaps(
+        carpeta_base,
+        resultado["configmaps"]
+    )
+
+    generar_reporte(resultado)
 
 
 if __name__ == "__main__":
