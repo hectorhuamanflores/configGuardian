@@ -8,6 +8,8 @@ def validar_configmaps(carpeta_base, configmaps):
     resultado = {
         "valido": True,
         "mensaje": "Todos los ConfigMaps existen en la base.",
+        "estructura": {},
+        "errores": [],
         "configmaps": []
     }
 

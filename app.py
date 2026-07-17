@@ -8,22 +8,26 @@ def main():
     carpeta_base = "base/config-properties"
     carpeta_proyecto = "proyecto"
 
-    resultado = validar_ruta(
+    resultado_ruta = validar_ruta(
         carpeta_base,
         carpeta_proyecto
     )
 
-    if not resultado["valido"]:
+    if not resultado_ruta["valido"]:
 
-        generar_reporte(resultado)
+        generar_reporte(resultado_ruta)
         return
 
-    resultado = validar_configmaps(
+    resultado_configmaps = validar_configmaps(
         carpeta_base,
-        resultado["configmaps"]
+        resultado_ruta["configmaps"]
     )
 
-    generar_reporte(resultado)
+    # Combinar resultados
+    resultado_configmaps["estructura"] = resultado_ruta["estructura"]
+    resultado_configmaps["errores"] = resultado_ruta["errores"]
+
+    generar_reporte(resultado_configmaps)
 
 
 if __name__ == "__main__":
